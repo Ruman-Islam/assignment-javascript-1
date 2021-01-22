@@ -4,7 +4,7 @@
 
 //.................... LENGTH CONVERTER START .....................
 
-function kilometerToMeter(kilometer) {    
+function kilometerToMeter(kilometer) {  
     var meter = 0;
     if (kilometer < 0) {
 
@@ -24,19 +24,19 @@ function kilometerToMeter(kilometer) {
 
 //..................... BUDGET CALCULATOR START ..................
 
-function budgetCalculator(watch, phone, laptop) {
-    if (watch < 0 || typeof(watch) == "string" || phone < 0 || typeof(phone) == "string" || laptop < 0 || typeof(laptop) == "string") {
+function budgetCalculator(watch, mobile, laptop) {
+    if (watch < 0 || mobile < 0 || laptop < 0) {
 
         return "invalid";
     }
     else {
         var price1 = watch * 50;
-        var price2 = phone * 100;
+        var price2 = mobile * 100;
         var price3 = laptop * 500;
         var totalPrice = price1 + price2 + price3;
 
         return totalPrice;  
-    }    
+    }
 }
 
 //..................... BUDGET CALCULATOR END ..................
@@ -89,20 +89,16 @@ function hotelCost(day) {
 function megaFriend(names) {
     var largestName = names[0];
 
-    if (typeof(names) == "number") {
-        
-        return "invalid";
-    }
-    else {
-        for (var i = 0; i < names.length; i++) {
-            var element = names[i];
-    
-            if (element.length > largestName.length) {
-                largestName = element;
-            }
+    for (var i = 0; i < names.length; i++) {
+        var element = names[i];
+        if (element.length <= 0) {
+            return "invalid";   
         }
-        return largestName;
+        else if (element.length > largestName.length) {
+            largestName = element;
+        }
     }
+        return largestName; 
 }
 
 //..................... LARGEST NAME IN AN ARRAY END ....................
