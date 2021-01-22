@@ -2,47 +2,60 @@
 
 
 
-// LENGTH CONVERTER .........................................
+//.................... LENGTH CONVERTER START .....................
 
-function kilometerToMeter(kilommeter) {
-    if (kilommeter >= 0 && kilommeter != -1) {
-        var meter = 0;
-        meter = kilommeter * 1000;
+function kilometerToMeter(kilometer) {    
+    var meter = 0;
+    if (kilometer < 0) {
+
+        return "Distance can't be negative";
+    }
+    else {       
+        meter = kilometer * 1000;
         
         return meter;
     }
-    else {
-        return "Distance can't be negative"
-    }
 }
 
-var result = kilometerToMeter();
-console.log(result);
+//.................... LENGTH CONVERTER END .....................
 
 
 
-// BUDGET CALCULATOR .......................................
+
+//..................... BUDGET CALCULATOR START ..................
 
 function budgetCalculator(watch, phone, laptop) {
-    var price1 = watch * 50;
-    var price2 = phone * 100;
-    var price3 = laptop * 500;
-    var totalPrice = price1 + price2 + price3;
+    if (watch < 0 || typeof(watch) == "string" || phone < 0 || typeof(phone) == "string" || laptop < 0 || typeof(laptop) == "string") {
 
-    return totalPrice;    
+        return "invalid";
+    }
+    else {
+        var price1 = watch * 50;
+        var price2 = phone * 100;
+        var price3 = laptop * 500;
+        var totalPrice = price1 + price2 + price3;
+
+        return totalPrice;  
+    }    
 }
 
-var result = budgetCalculator(2, 2, 3);
-console.log(result);
+//..................... BUDGET CALCULATOR END ..................
 
 
 
-// COSTING FOR STAYING IN A HOTEL.....................................  
+
+
+//................... TOTAL COSTING CALCULATOR START .................. 
 
 function hotelCost(day) {
     var cost = 0;
 
-    if (day <= 10) {
+    if (day < 0 || typeof(day) == "string") {
+
+        return "invalid";
+    }
+
+    else if (day <= 10) {
         cost = day * 100;
 
         return cost;
@@ -66,28 +79,30 @@ function hotelCost(day) {
     }
 }
 
-var result = hotelCost(71);
-console.log(result);
+//...................  TOTAL COSTING CALCULATOR END .................. 
 
 
 
 
-
-// LARGEST NAME IN A FRIENDZONE .........................................
+//..................... LARGEST NAME IN AN ARRAY START ....................
 
 function megaFriend(names) {
     var largestName = names[0];
 
-    for (var i = 0; i < names.length; i++) {
-        var element = names[i];
-
-        if (element.length > largestName.length) {
-            largestName = element;
-        }
+    if (typeof(names) == "number") {
+        
+        return "invalid";
     }
-    return largestName;
+    else {
+        for (var i = 0; i < names.length; i++) {
+            var element = names[i];
+    
+            if (element.length > largestName.length) {
+                largestName = element;
+            }
+        }
+        return largestName;
+    }
 }
 
-
-var result = megaFriend(["Anik Miah", "Parvej Rahman", "Aurko Ahmed", "Jawad Islam"]);
-console.log(result);
+//..................... LARGEST NAME IN AN ARRAY END ....................
