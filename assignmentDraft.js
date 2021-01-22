@@ -1,49 +1,47 @@
 // kiloMeterToMeter
 // budgetCalculator
 // hotelCost
-// 
+// megaFriend
 
 
 // LENGTH CONVERTER .........................................
 
-function kilometerToMeter(num){
-    if (num != "" && num > 0){
+function kilometerToMeter(kilommeter) {
+    if (kilommeter >= 0 && kilommeter != -1) {
         var meter = 0;
-        meter = num * 1000;
+        meter = kilommeter * 1000;
+        
         return meter;
     }
     else {
-        return "Length can't be negative"
+        return "Distance can't be negative"
     }
 }
 
-var result = kilometerToMeter(0);
+var result = kilometerToMeter();
 console.log(result);
 
 
 
-
-
-
-
-// TOTAL PRODUCT BUDGET CALCULATOR.......................................
+// BUDGET CALCULATOR .......................................
 
 function budgetCalculator(watch, phone, laptop) {
-    var sum1 = watch * 50;
-    var sum2 = phone * 100;
-    var sum3 = laptop * 500;
-    var total = sum1 + sum2 + sum3;
+    var price1 = watch * 50;
+    var price2 = phone * 100;
+    var price3 = laptop * 500;
+    var totalPrice = price1 + price2 + price3;
 
-    return total;
-    
+    return totalPrice;    
 }
 
+var result = budgetCalculator(2, 2, 3);
+console.log(result);
 
 
 
-//  HOW MUCH WILL COST FOR STAYING IN A HOTEL.....................................  
+// COSTING FOR STAYING IN A HOTEL.....................................  
 
-function hotelCost(day){
+function hotelCost(day) {
     var cost = 0;
 
     if (day <= 10) {
@@ -69,3 +67,31 @@ function hotelCost(day){
         return cost;
     }
 }
+
+var result = hotelCost(71);
+console.log(result);
+
+
+
+
+
+// LARGEST NAME IN A FRIENDZONE .........................................
+
+function megaFriend(names) {
+    var largestName = names[0];
+
+    for (var i = 0; i < names.length; i++) {
+        var element = names[i];
+
+        if (element.length > largestName.length) {
+            largestName = element;
+        }
+    }
+    return largestName;
+}
+
+
+var result = megaFriend(["Anik Miah", "Parvej Rahman", "Aurko Ahmed", "Jawad Islam"]);
+console.log(result);
+
+
